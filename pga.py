@@ -205,6 +205,10 @@ class _Multivector(dict):
     def isBivector(self) -> bool:
         rs = self.roughShape()
         return rs[2] and not rs[0] and not rs[1]
+    
+    def getEuclidean(self):
+        if self.isBivector():
+            return (1.0 / self[Blades.e12])*Blades.SCALAR*self
 
     def isVector(self) -> bool:
         rs = self.roughShape()
